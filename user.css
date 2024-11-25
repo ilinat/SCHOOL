@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+/*landing page*/
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  .sidenav a:hover{
+    color: #ee9520;
+    text-decoration: underline;
+  }
+  .sidenav .navitem User:active{
+    color: #ee9520;
+  }
+  
+  /*profile section*/
+  .profile{
+    text-align: center;
+    padding: 10px;
+  }
+  .profile img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  .profile p{
+    color: #ee9520;
+    margin-top: 10px;
+  }
+  /*navigation links*/
+  .sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #333;
+    display: block;
+  }
+  
+  .sidenav a:focus {
+    color: #ee9520;
+  }
+  
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+  }
+  .sidenav .profile .button{
+    background: #ee9520;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 70%;
+    height: 60%;
+    padding: 5px 22px;
+    border-radius: 30px;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+  
+  /*User profile*/
+  .student-profile .container{
+    
+  }
+  .student-profile .card {
+    border-radius: 20px;
+  }
+  .student-profile .card .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+    padding-bottom: 3rem;
+  }
+  
+  .student-profile {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .student-profile .card p {
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .student-profile .table th {
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #000;
+  }
+  .student-profile .table td {
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 5px 10px;
+    color: #000;
+  }
+  
+  /*attendance*/
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  label {
+    margin-top: 10px;
+    display: block;
+  }
+  
+  select {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ecf0f1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  strong {
+    margin-right: 10px;
+    flex-basis: auto;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  button {
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 20px;
+  }
+  
+  button.absent,
+  button.present,
+  button.leave {
+    background-color: black;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Responsive styles for mobile view */
+  @media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+  
+  }
+  
+  #resultSection {
+    margin-top: 20px;
+  }
+  
+  #resultSection h3 {
+    margin-top: 10px;
+  }
+  
+  #resultSection p {
+    margin-bottom: 5px;
+  }
+  
+  #resultSection span {
+    font-weight: bold;
+  }
