@@ -1,11 +1,16 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing:border-box;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
   *, *:before, *:after {
     box-sizing: inherit;
   }
+body{
+  font-family: sans-serif;
+}
+
 /*landing page*/
 .sidenav {
     height: 100%;
@@ -63,54 +68,172 @@
     width: 70%;
     height: 60%;
     padding: 5px 22px;
+    border: #ee9520;
     border-radius: 30px;
     align-items: center;
     text-align: center;
     color: #ffffff;
     font-size: 1rem;
     vertical-align: middle;
+    cursor: pointer;
   }
+.sidenav .profile .button:hover{
+  background-color:  #000;
+}
   
   /*User profile*/
-  .student-profile .container{
-    
-  }
-  .student-profile .card {
-    border-radius: 20px;
-  }
-  .student-profile .card .profile_img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin: 10px auto;
-    border: 10px solid #ccc;
-    border-radius: 50%;
-    padding-bottom: 3rem;
-  }
-  
-  .student-profile {
-    font-size: 20px;
-    font-weight: 700;
-  }
-  
-  .student-profile .card p {
+.main .card .card-header{
+  width: auto;
+  height: auto;
+  margin: 10px auto;
+
+}
+.main .card h3 {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+}
+.main .card p {
+  font-size: 16px;
+  color: #000;
+}
+ 
+.main .card.table th,
+.card.table td {
     font-size: 16px;
-    color: #000;
-  }
-  
-  .student-profile .table th {
-    font-size: 14px;
     padding: 5px 10px;
     color: #000;
-  }
-  .student-profile .table td {
-    font-size: 14px;
-    font-weight: lighter;
-    padding: 5px 10px;
-    color: #000;
-  }
-  
-  /*attendance*/
+}
+.main .row .g-4{
+  margin: 5px;
+
+}
+.main .row .col .card .img  .float-start{
+  margin: 50px;
+  padding: 50px;
+}
+.main .card .mb-3{
+  width: 700px;
+}
+
+
+.main .col-md-8{
+  padding: 5px;
+  text-align: justify;
+  width: 75%;
+}
+
+.main .card .btn{
+  width: 150px;
+  background-color: #ee9520;
+  align-self: center;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  border: 0;
+  border-radius: 0;
+    padding-top: 0.44rem;
+    padding-bottom: 0.44rem;
+}
+.card-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+.cards{
+  width: 30%;
+  height: 30%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 40px;
+  box-shadow: 2px 2px 10px black ;
+}
+.image img{
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: .5rem;
+}
+.title{
+  text-align: center;
+  padding: 5px;
+}
+
+.des{
+text-align: center;
+padding: 4px;
+}
+
+button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #ee9520;
+  color: #ffffff;
+  border-radius: 1px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #000;
+  transition: .5s;
+}
+
+/*course
+.courses{
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  align-items: center;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  margin: 10px;
+}
+.courses .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-start10.254;
+}
+
+.courses .box-container .box{
+  border-radius: 0.5rem;
+  background-color:  var(--white);
+  padding: 2rem;
+}
+
+.courses .box-container .box h3{
+  font-size: 1.8rem;
+  color: var(--black);
+}
+
+.courses .box-container .box .thumb{
+  position: relative;
+}
+
+
+.courses .box-container .box.thumb img{
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.courses.box-container .box .title{
+  font-size: 2rem;
+  color: var(--black);
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+}
+.courses .more-btn{
+  text-align: center;
+  margin-top: 2rem;
+}*/
+
+  /*attendance
   body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -197,7 +320,7 @@
     background-color: #2980b9;
   }
   
-  /* Responsive styles for mobile view */
+  /* Responsive styles for mobile view 
   @media screen and (max-width: 600px) {
     .container {
         padding: 10px;
@@ -220,3 +343,5 @@
   #resultSection span {
     font-weight: bold;
   }
+*/
+  
