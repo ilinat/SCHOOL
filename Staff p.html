@@ -3,61 +3,54 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>welcome to landing page</title>
-        <link rel="stylesheet" href="style.css">
+        <title>events</title>
+            <link rel="stylesheet" href="user.css">
+            <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<!-- Font Awesome CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     </head>
     <body>
-        <div class="student-profile py-4">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-4">
-                  <div class="card shadow-sm">
-                    <div class="card-body">
-                      <p class="mb-0"><strong class="pr-1">Student ID:</strong>2601504</p>
-                      <p class="mb-0"><strong class="pr-1">Class:</strong>10</p>
-                      <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
-                    </div>
-                  </div>
+        <section class="nav-nav">
+            <div class="sidenav">
+                <div class="profile"> 
+                    <img src="pp.png" alt="Me" class="profile">
+                    <p>Your Name</p>
+                    <a href="index.html"><button class="nav-button" id="form-close">Logout</button></a>
                 </div>
-                <div class="col-lg-8">
-                  <div class="card shadow-sm">
-                    <div class="card-header bg-transparent border-0">
-                      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
-                    </div>
-                    <div class="card-body pt-0">
-                      <table class="table table-bordered">
-                        <tr>
-                          <th width="30%">Roll</th>
-                          <td width="2%">:</td>
-                          <td>12</td>
-                        </tr>
-                        <tr>
-                          <th width="30%">Academic Year	</th>
-                          <td width="2%">:</td>
-                          <td>2023</td>
-                        </tr>
-                        <tr>
-                          <th width="30%">Gender</th>
-                          <td width="2%">:</td>
-                          <td>Female</td>
-                        </tr>
-                        <tr>
-                          <th width="30%">Religion</th>
-                          <td width="2%">:</td>
-                          <td>Group</td>
-                        </tr>
-                        <tr>
-                          <th width="30%">blood</th>
-                          <td width="2%">:</td>
-                          <td>B+</td>
-                        </tr>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                
+                <a href="home.html">User</a>
+                <a href="attendancestudent.html">Attendance</a>
+                <a href="event.html">Events</a>
+                <a href="students-detail.html">Student's Details</a>
             </div>
-          </div>
-</body>
-</html>
+            
+            <section class="staff-profile">
+                <div class="container-staff">
+                    <header>
+                    <h1>Welcome, <span id="teacherName">Teacher</span></h1>
+                    </header>
+                    <!-- Teacher Information -->
+                    <section id="teacherInfo">
+                    <h2>Teacher Profile</h2>
+                    <div id="profileDetails">
+                    <!-- Teacher's profile details will be populated dynamically -->
+                    <p><strong>Name:</strong> <span id="teacherFullName">Loading...</span></p>
+                    <p><strong>Email:</strong> <span id="teacherEmail">Loading...</span></p>
+                    <p><strong>Joined On:</strong> <span id="teacherJoinDate">Loading...</span></p>
+                    </div>
+                    <h3>Your Courses</h3>
+                    <div id="coursesList">
+                    <!-- List of courses will be populated dynamically -->
+                    <ul id="courses">
+                    <li>Loading courses...</li>
+                    </ul>
+                    </div>
+                </section>
+                    </div>
+                    
+            </section>
+            
+    </body>
+    </html>

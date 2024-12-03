@@ -1,0 +1,80 @@
+/*body {
+    line-height: 1.6;
+    margin: 2em;
+}
+
+th {
+    background-color: #001f3f;
+    color: #fff;
+    padding: 0.5em 1em;
+}
+
+td {
+    border-top: 1px solid #eee;
+    padding: 0.5em 1em;
+}
+
+input {
+    cursor: pointer;
+}
+
+/* Column types 
+td #total- {
+    background-color: #001f3f;
+    font-weight: bold;
+    text-align: center;
+}
+
+.name-col {
+    text-align: left;
+}
+    */
+
+    .progress-container {
+      width: 150px;
+      height: 150px;
+      position: relative;
+    }
+
+    .progress-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(#4caf50 calc(var(--attendance, 0%) * 1%), #d6d6d6 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: #000;
+      font-size: 1.2rem;
+    }
+
+    .form-container {
+      margin: 20px auto;
+      max-width: 300px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }

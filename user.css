@@ -2,17 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body{
   font-family: "Poppins", sans-serif;
 }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-body{
-  font-family: sans-serif;
+
+section{
+  margin-top: 30px;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: .2rem;
+  box-sizing: 0;
 }
 
 /*landing page*/
-.sidenav {
+
+.nav-nav .sidenav {
     height: 100%;
     width: 200px;
     position: fixed;
@@ -22,65 +27,65 @@ body{
     background-color: whitesmoke;
     overflow-x: hidden;
     padding-top: 20px;
-  }
-  .sidenav a:hover{
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  .nav-nav .sidenav a:hover{
     color: #ee9520;
     text-decoration: underline;
   }
-  .sidenav .navitem User:active{
+  .nav-nav .sidenav .navitem User:active{
     color: #ee9520;
   }
   
   /*profile section*/
-  .profile{
+ .nav-nav .profile{
+  align-content: center;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
+    margin: 5px;
   }
-  .profile img{
+  .nav-nav .profile img{
     border-radius: 50%;
     width: 50px;
     height: 50px;
   }
-  .profile p{
+  .nav-nav .profile p{
     color: #ee9520;
-    margin-top: 10px;
+    font-size: large;
   }
   /*navigation links*/
-  .sidenav a {
+  .nav-nav .sidenav a {
     padding: 6px 6px 6px 32px;
     text-decoration: none;
     font-size: 25px;
+    align-items: center;
     color: #333;
     display: block;
   }
   
-  .sidenav a:focus {
+  .nav-nav .sidenav a:focus {
     color: #ee9520;
   }
   
-  .main {
-    margin-left: 200px; /* Same as the width of the sidenav */
-  }
-  .sidenav .profile .button{
+  .nav-nav .sidenav .profile .nav-button{
     background: #ee9520;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    width: 70%;
-    height: 60%;
-    padding: 5px 22px;
+    width: 75%;
+    height:100%;
+    padding: 5px;
     border: #ee9520;
     border-radius: 30px;
-    align-items: center;
-    text-align: center;
     color: #ffffff;
     font-size: 1rem;
-    vertical-align: middle;
     cursor: pointer;
   }
-.sidenav .profile .button:hover{
+.nav-nav .sidenav .profile .nav-button:hover{
   background-color:  #000;
 }
   
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
   /*User profile*/
 .main .card .card-header{
   width: auto;
@@ -134,214 +139,213 @@ body{
     padding-top: 0.44rem;
     padding-bottom: 0.44rem;
 }
-.card-container{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+
+/*courses*/
+
+.courses .cards-container{
+  display: flex;
+  grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
   gap: 1.5rem;
   justify-content: center;
   align-items: flex-start;
-
 }
-.cards{
-  width: 30%;
-  height: 30%;
-  background-color: #ffffff;
-  border-radius: 5px;
-  margin: 40px;
-  box-shadow: 2px 2px 10px black ;
-}
-.image img{
+.courses .cards-container .cards{
+  height: 100%;
   width: 100%;
-  height: 20rem;
-  object-fit: cover;
   border-radius: .5rem;
-}
-.title{
-  text-align: center;
   padding: 5px;
-}
-
-.des{
-text-align: center;
-padding: 4px;
-}
-
-button{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #ee9520;
-  color: #ffffff;
-  border-radius: 1px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-button:hover{
-  background-color: #000;
-  transition: .5s;
-}
-
-/*course
-.courses{
-  display: flex;
-  flex-direction: column;
-  max-width: 300px;
-  align-items: center;
+  background-color:  var(--grey);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  margin: 10px;
 }
-.courses .box-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
-  gap: 1.5rem;
-  justify-content: space-between;
-  align-items: flex-start10.254;
-}
-
-.courses .box-container .box{
-  border-radius: 0.5rem;
-  background-color:  var(--white);
-  padding: 2rem;
-}
-
-.courses .box-container .box h3{
-  font-size: 1.8rem;
-  color: var(--black);
-}
-
-.courses .box-container .box .thumb{
+ 
+.courses .cards-container .cards .image{
   position: relative;
 }
 
-
-.courses .box-container .box.thumb img{
+ .courses .cards-container .cards .image img{
   width: 100%;
   height: 20rem;
+  padding: 20px;
   object-fit: cover;
   border-radius: 0.5rem;
 }
-
-.courses.box-container .box .title{
+.courses .cards-container .cards .title{
   font-size: 2rem;
   color: var(--black);
   padding-bottom: 0.5rem;
   padding-top: 1rem;
-}
-.courses .more-btn{
   text-align: center;
-  margin-top: 2rem;
-}*/
+}
 
-  /*attendance
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  .navbar-links a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-  }
+.courses .cards-container .cards .title .h2{
+  font-size: 1.8rem;
+  color: var(--black);
+}
+.courses .cards-container .cards .des{
+text-align: center;
+padding: 4px;
+}
+
+.courses .cards-container .cards .des .view-btn{
+  width: 75%;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  background-color: #ee9520;
+  color: #ffffff;
+  border: 0;
+  border-radius: 3px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.courses .cards-container .cards .des .view-btn:hover{
+  background-color: #000;
+  transition: .5s;
+}
   
-  .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    color: #333;
-  }
-  
-  label {
-    margin-top: 10px;
-    display: block;
-  }
-  
-  select {
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #ecf0f1;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  
-  strong {
-    margin-right: 10px;
-    flex-basis: auto;
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  button {
-    padding: 8px;
-    cursor: pointer;
-    border: none;
-    color: white;
-    border-radius: 20px;
-  }
-  
-  button.absent,
-  button.present,
-  button.leave {
-    background-color: black;
-  }
-  
-  button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Responsive styles for mobile view 
-  @media screen and (max-width: 600px) {
-    .container {
+
+/*attendance-student*/
+
+input, button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a049;
+}
+canvas {
+  display: block;
+  margin: 20px auto;
+}
+
+/*attendance-teacher*/
+
+input, button {
         padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
     }
-  
-  }
-  
-  #resultSection {
-    margin-top: 20px;
-  }
-  
-  #resultSection h3 {
-    margin-top: 10px;
-  }
-  
-  #resultSection p {
-    margin-bottom: 5px;
-  }
-  
-  #resultSection span {
-    font-weight: bold;
-  }
-*/
-  
+    button {
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    canvas {
+        display: block;
+        margin: 20px auto;
+    }
+
+/*quiz*/
+
+.quiz .icon-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.quiz .icon-link {
+  height: 100%;
+  width: 50%;
+  border-radius: .5rem;
+  display: inline-block;
+  text-decoration: none;
+  color: #ee9520;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.quiz .icon-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.quiz .icon {
+  font-size: 50px;
+  display: block;
+  color: #ee9520;
+  margin-bottom: 5px;
+}
+
+/*quiz section*/
+
+input, textarea, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a049;
+}
+.event-list {
+  margin-top: 20px;
+}
+.event {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+.event h3 {
+  margin: 0;
+}
+
+/*event-student*/
+
+.events-stu .events-list {
+  margin-top: 20px;
+}
+.events-stu .events {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+.events-stu .events h3 {
+  margin: 0;
+}
+
+.profile-teacher .container{
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile-teacher .container .add-student-btn, .update-student-btn, .delete-student-btn{
+  margin: 20px;
+  margin-bottom: 50px;
+  padding: 10px;
+  background-color: #ee9520;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.profile-teacher .container .add-student-btn:hover{
+  background-color: #e68a13;
+}
+.profile-teacher .container .update-student-btn:hover{
+  background-color: #e68a13;
+}
+.profile-teacher .container .delete-student-btn:hover{
+  background-color: #e68a13;
+}

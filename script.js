@@ -31,512 +31,350 @@ teacherLoginBtn.addEventListener("click", (e) => {
   formContainer.classList.add("active");
 });
 
-//script.js
-document.addEventListener("DOMContentLoaded",
-  function () {
-      populateClasses();
-      showStudentsList();
+//attendance//
+// document.addEventListener('DOMContentLoaded', () => {
+    // Simulate fetching data from a database
+    // const attendancePercentage = 75; // Replace this with actual data fetching logic
+
+    // const progressCircle = document.getElementById('.progress-circle');
+    // const progressText = document.getElementById('.progress-text');
+
+    // Update the progress bar
+    // progressCircle.style.background = `conic-gradient(#4caf50 ${attendancePercentage}%, #ddd ${attendancePercentage}% 100%)`;
+    // progressText.textContent = `${attendancePercentage}%`;
+// });
+
+
+//arko attendance//
+//document.addEventListener('DOMContentLoaded', function() {
+  //  const checkboxes= document.querySelectorAll('.attendance');
+
+    //checkboxes.forEach(checkbox => {
+      //  checkbox.addEventListener('change', function(){
+        //    const studentId= this.getAttribute('data-student');
+
+//            const totalCell= document.getElementById('total-${studentId}');
+  //          const studentCheckboxes= document.querySelectorAll('.attendance[data-student="${studentId}"]');
+    //        let count=0;
+      //      studentCheckboxes.forEach(cb => {
+        //        if(cb.checked) {
+          //          count ++;
+            //    }
+           // });
+
+            //totalCell.textContent= count;
+
+        //});
+    //});
+// });
+
+//arko attendance
+// document.addEventListener('DOMContentLoaded', function() {
+   // const checkboxes = document.querySelectorAll('.attendance');
+
+   // checkboxes.forEach(checkbox => {
+    //    checkbox.addEventListener('change', updateAttendance);
+  //  });
+
+    // function updateAttendance() {
+    //    const students = {};
+
+      //   checkboxes.forEach(checkbox => {
+        //    const studentId = checkbox.getAttribute('data-student');
+
+          //  if(!students[studentId]) {
+          //      students[studentId] = 0;
+
+         //   }
+
+         //   if(checkbox.checked) {
+         //       students[studentId]++;
+       //     }
+      //   });
+
+       //  for(const studentId in students) {
+      //    const totalCell = document.getElementById(`total-${studentId}`);
+      //    if (totalCell) {
+      //      totalCell.textContent = students[studentId];
+      //    }
+     //    }
+   //     }
+  //  });
+
+
+  //attendance-teacher//
+    // Handle attendance update submission
+    document.getElementById('attendanceForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const studentId = document.getElementById('student_id').value;
+      const date = document.getElementById('date').value;
+      const status = document.getElementById('status').value;
+
+      const token = localStorage.getItem('token');
+      if (!token) {
+          alert('You need to log in.');
+          return;
+      }
+
+      const response = await fetch('/api/teacher/update-attendance', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ student_id: studentId, date: date, status: status })
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+          alert('Attendance successfully updated!');
+          document.getElementById('attendanceForm').reset();
+      } else {
+          alert('Error: ' + result.message);
+      }
   });
 
-function showAddStudentForm() {
-  document.getElementById('addStudentPopup').
-      style.display = 'block';
+  //attendance-student//
+  async function fetchAttendance() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert('You need to log in to view attendance');
+        window.location.href = '/login'; // Redirect to login page
+        return;
+    }
+
+    // Fetch attendance data from the backend
+    const response = await fetch('/api/student/attendance', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+        // Prepare data for the pie chart
+        const attendanceData = {
+            labels: ['Present', 'Absent', 'Late'],
+            datasets: [{
+                label: 'Your Attendance',
+                data: [
+                    result.Present,   // Count of present days
+                    result.Absent,    // Count of absent days
+                    result.Late       // Count of late days
+                ],
+                backgroundColor: ['#28a745', '#dc3545', '#ffc107'],  // Colors for each section
+                borderColor: ['#218838', '#c82333', '#e0a800'],      // Border colors
+                borderWidth: 1
+            }]
+        };
+
+        // Render the pie chart using Chart.js
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        const attendanceChart = new Chart(ctx, {
+            type: 'pie', // Chart type (pie chart)
+            data: attendanceData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + ' days';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        alert('Error: ' + result.message);
+    }
 }
 
-function showAddClassForm() {
-  // Show the add class popup
-  document.getElementById('addClassPopup').
-      style.display = 'block';
+// Load attendance and render chart on page load
+fetchAttendance();
+
+
+    //event-teacher//
+
+     // Retrieve events from localStorage or initialize an empty array
+     let event = JSON.parse(localStorage.getItem('events')) || [];  //events lai event maah change gareko
+               
+     // Display events on page load
+     window.onload = displayEvents;
+      
+     // Function to display events
+     function displayEvents() {
+         const eventsContainer = document.getElementById('events');
+         eventsContainer.innerHTML = '';
+      
+         events.forEach(event => {
+             const eventDiv = document.createElement('div');
+             eventDiv.classList.add('event');
+             eventDiv.innerHTML = `
+     <h3>${event.title}</h3>
+     <p><strong>Date:</strong> ${event.date}</p>
+     <p><strong>Description:</strong> ${event.description}</p>
+             `;
+             eventsContainer.appendChild(eventDiv);
+         });
+     }
+      
+     // Handle form submission to add an event
+     document.getElementById('eventForm').addEventListener('submit', function(event) {
+         event.preventDefault();
+      
+         const title = document.getElementById('eventTitle').value;
+         const date = document.getElementById('eventDate').value;
+         const description = document.getElementById('eventDescription').value;
+      
+         // Create an event object
+         const newEvent = {
+             title: title,
+             date: date,
+             description: description
+         };
+      
+         // Add the new event to the events array and save to localStorage
+         events.push(newEvent);
+         localStorage.setItem('events', JSON.stringify(events));
+      
+         // Clear the form inputs
+         document.getElementById('eventForm').reset();
+      
+         // Display the updated events
+         displayEvents();
+     });
+
+     //event-student//
+     // Retrieve events from localStorage
+let events = JSON.parse(localStorage.getItem('events')) || [];
+ 
+// Display events on page load
+window.onload = displayEvents;
+ 
+// Function to display events
+function displayEvents() {
+    const eventsContainer = document.getElementById('events');
+    eventsContainer.innerHTML = '';
+ 
+    if (events.length === 0) {
+        eventsContainer.innerHTML = "<p>No events available at the moment.</p>";
+    }
+ 
+    events.forEach(event => {
+        const eventDiv = document.createElement('div');
+        eventDiv.classList.add('event');
+        eventDiv.innerHTML = `
+<h3>${event.title}</h3>
+<p><strong>Date:</strong> ${event.date}</p>
+<p><strong>Description:</strong> ${event.description}</p>
+        `;
+        eventsContainer.appendChild(eventDiv);
+    });
 }
 
-function addStudent() {
-  // Get input values
-  const newStudentName = document.
-      getElementById('newStudentName').value;
-  const newStudentRoll = document.
-      getElementById('newStudentRoll').value;
+// Add student to the system
+document.getElementById("addStudentForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-  if (!newStudentName || !newStudentRoll) {
-      alert("Please provide both name and roll number.");
-      return;
-  }
+  const firstName = document.getElementById("studentFirstName").value;
+  const lastName = document.getElementById("studentLastName").value;
+  const email = document.getElementById("studentEmail").value;
+  const enrollmentDate = document.getElementById("studentEnrollmentDate").value;
 
-  // Add the new student to the list
-  const classSelector = document.
-      getElementById('classSelector');
-  const selectedClass = classSelector.
-      options[classSelector.selectedIndex].value;
-  const studentsList = document.
-      getElementById('studentsList');
+  const response = await fetch('/api/teacher/addStudent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          email: email,
+          enrollment_date: enrollmentDate
+      })
+  });
 
-  const listItem = document.createElement('li');
-  listItem.setAttribute('data-roll-number', newStudentRoll);
-  listItem.innerHTML =
-      `<strong>
-          ${newStudentName}
-      </strong> 
-      (Roll No. ${newStudentRoll})`;
-
-  const absentButton =
-      createButton('A', 'absent',
-          () => markAttendance('absent', listItem, selectedClass));
-  const presentButton =
-      createButton('P', 'present',
-          () => markAttendance('present', listItem, selectedClass));
-  const leaveButton =
-      createButton('L', 'leave',
-          () => markAttendance('leave', listItem, selectedClass));
-
-  listItem.appendChild(absentButton);
-  listItem.appendChild(presentButton);
-  listItem.appendChild(leaveButton);
-
-  studentsList.appendChild(listItem);
-  saveStudentsList(selectedClass);
-  closePopup();
-}
-
-function addClass() {
-  const newClassName = document.
-      getElementById('newClassName').value;
-
-  if (!newClassName) {
-      alert("Please provide a class name.");
-      return;
-  }
-
-  // Add the new class to the class selector
-  const classSelector = document.
-      getElementById('classSelector');
-  const newClassOption = document.
-      createElement('option');
-  newClassOption.value = newClassName;
-  newClassOption.text = newClassName;
-  classSelector.add(newClassOption);
-  saveClasses();
-  closePopup();
-}
-
-function submitAttendance() {
-  const classSelector = document.
-      getElementById('classSelector');
-
-  if (!classSelector || !classSelector.options ||
-      classSelector.selectedIndex === -1) {
-      console.error
-          ('Class selector is not properly defined or has no options.');
-      return;
-  }
-
-  const selectedClass = classSelector.
-      options[classSelector.selectedIndex].value;
-
-  if (!selectedClass) {
-      console.error('Selected class is not valid.');
-      return;
-  }
-
-  const studentsList =
-      document.getElementById('studentsList');
-
-  // Check if attendance is already submitted 
-  // for the selected class
-  const isAttendanceSubmitted =
-      isAttendanceSubmittedForClass(selectedClass);
-
-  if (isAttendanceSubmitted) {
-      // If attendance is submitted, hide the 
-      // summary and show the attendance result
-      document.getElementById('summarySection').
-          style.display = 'none';
-      showAttendanceResult(selectedClass);
+  const result = await response.json();
+  if (response.ok) {
+      alert('Student added successfully!');
+      loadStudents();  // Refresh the students list
   } else {
-      // If attendance is not submitted, show the summary
-      document.getElementById('summarySection').
-          style.display = 'block';
-      document.getElementById('resultSection').
-          style.display = 'none';
+      alert('Error adding student: ' + result.message);
   }
-  // Clear the student list and reset the form
-  studentsList.innerHTML = '';
-}
+});
 
-function isAttendanceSubmittedForClass(selectedClass) {
-  const savedAttendanceData = JSON.parse
-      (localStorage.getItem('attendanceData')) || [];
-  return savedAttendanceData.some
-      (record => record.class === selectedClass);
-}
+// Edit student details
+document.getElementById("editStudentForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-function showAttendanceResult(selectedClass) {
-  const resultSection = document.
-      getElementById('resultSection');
+  const studentId = document.getElementById("editStudentId").value;
+  const firstName = document.getElementById("editStudentFirstName").value;
+  const lastName = document.getElementById("editStudentLastName").value;
+  const email = document.getElementById("editStudentEmail").value;
 
-  if (!resultSection) {
-      console.error('Result section is not properly defined.');
-      return;
-  }
-
-  const now = new Date();
-  const date =
-      `${now.getFullYear()}-${String(now.getMonth() + 1).
-      padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-  const time =
-      `${String(now.getHours()).padStart(2, '0')}:
-      ${String(now.getMinutes()).padStart(2, '0')}:
-      ${String(now.getSeconds()).padStart(2, '0')}`;
-
-  // Retrieve attendance data from local storage
-  const savedAttendanceData = JSON.parse
-      (localStorage.getItem('attendanceData')) || [];
-  const filteredAttendanceData = savedAttendanceData.
-      filter(record => record.class === selectedClass);
-
-  const totalStudents = filteredAttendanceData.
-  reduce((acc, record) => {
-      if (!acc.includes(record.name)) {
-          acc.push(record.name);
-      }
-      return acc;
-  }, []).length;
-
-  const totalPresent = filteredAttendanceData.
-      filter(record => record.status === 'present').length;
-  const totalAbsent = filteredAttendanceData.
-      filter(record => record.status === 'absent').length;
-  const totalLeave = filteredAttendanceData.
-      filter(record => record.status === 'leave').length;
-
-  // Update the result section
-  document.getElementById('attendanceDate').
-      innerText = date;
-  document.getElementById('attendanceTime').
-      innerText = time;
-  document.getElementById('attendanceClass').
-      innerText = selectedClass;
-  document.getElementById('attendanceTotalStudents').
-      innerText = totalStudents;
-  document.getElementById('attendancePresent').
-      innerText = totalPresent;
-  document.getElementById('attendanceAbsent').
-      innerText = totalAbsent;
-  document.getElementById('attendanceLeave').
-      innerText = totalLeave;
-
-  // Show the attendance result section
-  resultSection.style.display = 'block';
-}
-
-function closePopup() {
-  // Close the currently open popup
-  document.getElementById('addStudentPopup').
-      style.display = 'none';
-  document.getElementById('addClassPopup').
-      style.display = 'none';
-}
-
-function createButton(text, status, onClick) {
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.innerText = text;
-  button.className = status;
-  button.onclick = onClick;
-  return button;
-}
-
-function populateClasses() {
-  // Retrieve classes from local storage
-  const savedClasses = JSON.parse
-      (localStorage.getItem('classes')) || [];
-  const classSelector = 
-      document.getElementById('classSelector');
-
-  savedClasses.forEach(className => {
-      const newClassOption = 
-          document.createElement('option');
-      newClassOption.value = className;
-      newClassOption.text = className;
-      classSelector.add(newClassOption);
-  });
-}
-
-function showStudentsList() {
-  const classSelector = 
-      document.getElementById('classSelector');
-  const selectedClass = classSelector.
-      options[classSelector.selectedIndex].value;
-
-  const studentsList = 
-      document.getElementById('studentsList');
-  studentsList.innerHTML = '';
-
-  // Retrieve students from local storage
-  const savedStudents = JSON.parse
-      (localStorage.getItem('students')) || {};
-  const selectedClassStudents = 
-      savedStudents[selectedClass] || [];
-
-  selectedClassStudents.forEach(student => {
-      const listItem = document.createElement('li');
-      listItem.setAttribute
-          ('data-roll-number', student.rollNumber);
-      listItem.innerHTML = 
-          `<strong>
-              ${student.name}
-          </strong> 
-          (Roll No. ${student.rollNumber})`;
-
-      const absentButton = createButton('A', 'absent', 
-          () => markAttendance('absent', listItem, selectedClass));
-      const presentButton = createButton('P', 'present', 
-          () => markAttendance('present', listItem, selectedClass));
-      const leaveButton = createButton('L', 'leave', 
-          () => markAttendance('leave', listItem, selectedClass));
-
-      const savedColor = getSavedColor
-          (selectedClass, student.rollNumber);
-      if (savedColor) {
-          listItem.style.backgroundColor = savedColor;
-      }
-
-      listItem.appendChild(absentButton);
-      listItem.appendChild(presentButton);
-      listItem.appendChild(leaveButton);
-
-      studentsList.appendChild(listItem);
+  const response = await fetch(`/api/teacher/editStudent/${studentId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          email: email
+      })
   });
 
-  // Check if attendance for the 
-  // selected class has been submitted
-  const resultSection = document.
-      getElementById('resultSection');
-  const isAttendanceSubmitted = 
-      resultSection.style.display === 'block';
-
-  // Show the appropriate section based 
-  // on the attendance submission status
-  if (isAttendanceSubmitted) {
-      // Attendance has been submitted, 
-      // show the attendance result
-      showAttendanceResult(selectedClass);
+  const result = await response.json();
+  if (response.ok) {
+      alert('Student updated successfully!');
+      loadStudents();  // Refresh the students list
   } else {
-      // Attendance not submitted, 
-      // show the normal summary
-      showSummary(selectedClass);
+      alert('Error updating student: ' + result.message);
   }
-}
+});
 
-function showAttendanceResult(selectedClass) {
-  const resultSection = 
-      document.getElementById('resultSection');
+// Delete student
+document.getElementById("deleteStudentForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-  if (!resultSection) {
-      console.error('Result section is not properly defined.');
-      return;
-  }
+  const studentId = document.getElementById("deleteStudentId").value;
 
-  const now = new Date();
-  const date = 
-      `${now.getFullYear()}-${String(now.getMonth() + 1).
-      padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-  const time = 
-      `${String(now.getHours()).padStart(2, '0')}:
-      ${String(now.getMinutes()).padStart(2, '0')}:
-      ${String(now.getSeconds()).padStart(2, '0')}`;
-
-  // Retrieve attendance data from local storage
-  const savedAttendanceData = JSON.parse
-      (localStorage.getItem('attendanceData')) || [];
-  const filteredAttendanceData = savedAttendanceData.
-      filter(record => record.class === selectedClass);
-
-  const totalStudents = filteredAttendanceData.
-  reduce((acc, record) => {
-      if (!acc.includes(record.name)) {
-          acc.push(record.name);
-      }
-      return acc;
-  }, []).length;
-
-  const totalPresent = filteredAttendanceData.
-      filter(record => record.status === 'present').length;
-  const totalAbsent = filteredAttendanceData.
-      filter(record => record.status === 'absent').length;
-  const totalLeave = filteredAttendanceData.
-      filter(record => record.status === 'leave').length;
-
-  // Update the result section
-  const resultContent = 
-      `Date: ${date} | Time: ${time} | 
-      Total Students: ${totalStudents} | 
-      Present: ${totalPresent} | 
-      Absent: ${totalAbsent} | Leave: ${totalLeave}`;
-  resultSection.innerHTML = resultContent;
-
-  // Show the result section
-  resultSection.style.display = 'block';
-
-  // Show the list of students below the result section
-  const studentsListHTML = 
-      generateStudentsListHTML(filteredAttendanceData);
-  resultSection.insertAdjacentHTML
-      ('afterend', studentsListHTML);
-}
-
-
-function markAttendance
-  (status, listItem, selectedClass) {
-  // Find the corresponding student name
-  const studentName = listItem.
-      querySelector('strong').innerText;
-
-  // Update the background color of the student 
-  // row based on the attendance status
-  listItem.style.backgroundColor = 
-      getStatusColor(status);
-
-  // Save the background color to local storage
-  saveColor(selectedClass, 
-      listItem.getAttribute('data-roll-number'), 
-      getStatusColor(status));
-
-  // Update the attendance record for the specific student
-  updateAttendanceRecord(studentName, selectedClass, status);
-
-  // Show the summary for the selected class
-  showSummary(selectedClass);
-}
-
-function getStatusColor(status) {
-  switch (status) {
-      case 'absent':
-          return '#e74c3c';
-      case 'present':
-          return '#2ecc71';
-      case 'leave':
-          return '#f39c12';
-      default:
-          return '';
-  }
-}
-
-function updateAttendanceRecord
-  (studentName, selectedClass, status) {
-  // Retrieve existing attendance data from local storage
-  const savedAttendanceData = JSON.parse
-      (localStorage.getItem('attendanceData')) || [];
-
-  // Check if the record already exists
-  const existingRecordIndex = savedAttendanceData.
-      findIndex(record => record.name === studentName && 
-          record.class === selectedClass);
-
-  if (existingRecordIndex !== -1) {
-      // Update the existing record
-      savedAttendanceData[existingRecordIndex].
-          status = status;
-      savedAttendanceData[existingRecordIndex].
-          date = getCurrentDate();
-  } else {
-      // Add a new record
-      savedAttendanceData.push(
-          { 
-              name: studentName, class: selectedClass, 
-              status: status, date: getCurrentDate() 
-          });
-  }
-
-  // Save updated attendance data to local storage
-  localStorage.setItem('attendanceData', 
-      JSON.stringify(savedAttendanceData));
-}
-
-function showSummary(selectedClass) {
-  const savedAttendanceData = JSON.parse
-      (localStorage.getItem('attendanceData')) || [];
-
-  // Filter attendance data based on the selected class
-  const filteredAttendanceData = savedAttendanceData.
-      filter(record => record.class === selectedClass);
-
-  const totalStudents = filteredAttendanceData.
-  reduce((acc, record) => {
-      if (!acc.includes(record.name)) {
-          acc.push(record.name);
-      }
-      return acc;
-  }, []).length;
-
-  const totalPresent = filteredAttendanceData.
-      filter(record => record.status === 'present').length;
-  const totalAbsent = filteredAttendanceData.
-      filter(record => record.status === 'absent').length;
-  const totalLeave = filteredAttendanceData.
-      filter(record => record.status === 'leave').length;
-
-  document.getElementById('totalStudents').
-      innerText = totalStudents;
-  document.getElementById('totalPresent').
-      innerText = totalPresent;
-  document.getElementById('totalAbsent').
-      innerText = totalAbsent;
-  document.getElementById('totalLeave').
-      innerText = totalLeave;
-}
-
-function getCurrentDate() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).
-      padStart(2, '0');
-  const day = String(now.getDate()).
-      padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
-
-function saveClasses() {
-  // Save classes to local storage
-  const classSelector = document.
-      getElementById('classSelector');
-  const savedClasses = Array.from(classSelector.options).
-      map(option => option.value);
-  localStorage.setItem('classes', 
-      JSON.stringify(savedClasses));
-}
-
-function saveStudentsList(selectedClass) {
-  // Save the updated student list to local storage
-  const studentsList = document.
-      getElementById('studentsList');
-  const savedStudents = JSON.parse
-      (localStorage.getItem('students')) || {};
-  const selectedClassStudents = Array.from(studentsList.children).
-  map(item => {
-      return {
-          name: item.querySelector('strong').innerText,
-          rollNumber: item.getAttribute('data-roll-number')
-      };
+  const response = await fetch(`/api/teacher/deleteStudent/${studentId}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
   });
 
-  savedStudents[selectedClass] = selectedClassStudents;
-  localStorage.setItem
-      ('students', JSON.stringify(savedStudents));
-}
-
-function saveColor(selectedClass, rollNumber, color) {
-  const savedColors = JSON.parse
-  (localStorage.getItem('colors')) || {};
-  if (!savedColors[selectedClass]) {
-      savedColors[selectedClass] = {};
+  const result = await response.json();
+  if (response.ok) {
+      alert('Student deleted successfully!');
+      loadStudents();  // Refresh the students list
+  } else {
+      alert('Error deleting student: ' + result.message);
   }
-  savedColors[selectedClass][rollNumber] = color;
-  localStorage.setItem('colors', 
-      JSON.stringify(savedColors));
+});
+
+// Load the list of students (populate dynamically)
+async function loadStudents() {
+  const response = await fetch('/api/teacher/students');
+  const students = await response.json();
+  const studentsListDiv = document.getElementById('studentsList');
+  studentsListDiv.innerHTML = '';  // Clear existing list
+
+  students.forEach(student => {
+      const studentDiv = document.createElement('div');
+      studentDiv.innerHTML = `
+<p><strong>${student.first_name} ${student.last_name}</strong></p>
+<p>Email: ${student.email}</p>
+<p>Enrollment Date: ${student.enrollment_date}</p>
+<hr>
+      `;
+      studentsListDiv.appendChild(studentDiv);
+  });
 }
 
-function getSavedColor(selectedClass, rollNumber) {
-  const savedColors = JSON.parse
-      (localStorage.getItem('colors')) || {};
-  return savedColors[selectedClass] ? 
-      savedColors[selectedClass][rollNumber] : null;
-}
+// Initial load of students
+loadStudents();

@@ -5,43 +5,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>welcome to landing page</title>
         <link rel="stylesheet" href="user.css">
-        <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-       
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+        <!-- Font Awesome CSS -->
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+                  
     </head>
     <body>
-        <div class="sidenav">
-            <div class="profile"> 
-                <img src="pp.png" alt="Me" class="profile">
-                <p>Your Name</p>
-                <button class="button" id="form-close">Logout</button>
-                <!--a class="button" href="#">logout</a-->
-            </div>
-            
-            <a href="home.html">
-                <div class="navitem User">User
+        <section class="nav-nav">
+            <div class="sidenav">
+                <div class="profile"> 
+                    <img src="pp.png" alt="Me" class="profile">
+                    <p>Your Name</p>
+                    <a href="index.html"><button class="nav-button" id="form-close">Logout</button></a>
                 </div>
-            </a>
-            <a href="#">Courses</a>
-            <a href="attendancestudent.html">Attendance</a>
-            <a href="#">Events</a>
-            <a href="#">Quizes</a>
-            <a href="#">Feedback</a>
-        </div>
-
-        <div class="row justify-content-around">
-            <div class="col-4">
-              One of two columns
+                
+                <a href="home.html">User</a>
+                <a href="courses.html">Courses</a>
+                <a href="attendancestudent.html">Attendance</a>
+                <a href="event-student.html">Events</a>
+                <a href="quizes.html">Quizes</a>
+                <a href="feedback.html">Feedback</a>
             </div>
-            <div class="col-4">
-              One of two columns
-            </div>
-          </div>
+            </section>
 
-          <!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+            <section class="attendance-student">
+
+                <h1>Your Attendance</h1>
+ 
+                <!-- Canvas element where the pie chart will be rendered -->
+            <canvas id="attendanceChart" width="400" height="400"></canvas>
+             
+                <!--div class="container1-box">
+                    <div class="conainter1">
+                    <h2>Hi,</h2>
+                    <p>Welcome to the Page. please check your attendance.</p>
+                    <a href="#" class="button1">Engagement Dashboard</a>
+                    <a href="#" class="button1">Assessment Dashboard</a>
+                </div>
+
+                <div class="right-box">
+                         <div class="progress-circle" id="progress-circle">
+                            <span class="progress-text" id="progress-text">0%
+                                
+                            </span>
+                         </div>
+                </div>
+                </div-->
+
+            </section>
+
+            <script src="script.js"></script>
 </body>
 </html>
