@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>events</title>
             <link rel="stylesheet" href="user.css">
+            <!-- Bootstrap CSS -->
             <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-<!-- Font Awesome CSS -->
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <!-- Font Awesome CSS -->
+            <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+
     
     </head>
     <body>
@@ -20,19 +21,21 @@
                     <a href="index.html"><button class="nav-button" id="form-close">Logout</button></a>
                 </div>
                 
-                <a href="home.html">User</a>
-                <a href="attendancestudent.html">Attendance</a>
+                <a href="Staff p.html">User</a>
+                <a href="attendance.html">Attendance</a>
                 <a href="event.html">Events</a>
-                <a href="students-detail.html">Student's Details</a>
+                <a href="students-detail.html">Student Details</a>
             </div>
             
-            <section class="staff-profile">
+            <ection class="staff-profile">
                 <div class="container-staff">
-                    <header>
-                    <h1>Welcome, <span id="teacherName">Teacher</span></h1>
-                    </header>
+                    <div class="heading-teacher">
+                    <h2>Welcome, 
+                        <span id="teacherName">Teacher</span>
+                    </h2>
+                    </div>
                     <!-- Teacher Information -->
-                    <section id="teacherInfo">
+                    <div id="teacherInfo">
                     <h2>Teacher Profile</h2>
                     <div id="profileDetails">
                     <!-- Teacher's profile details will be populated dynamically -->
@@ -47,10 +50,9 @@
                     <li>Loading courses...</li>
                     </ul>
                     </div>
-                </section>
+                </div>
                     </div>
                     
             </section>
-            
     </body>
     </html>

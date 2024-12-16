@@ -86,7 +86,7 @@ section{
 .main {
   margin-left: 200px; /* Same as the width of the sidenav */
 }
-  /*User profile*/
+  /*User profile
 .main .card .card-header{
   width: auto;
   height: auto;
@@ -138,9 +138,9 @@ section{
   border-radius: 0;
     padding-top: 0.44rem;
     padding-bottom: 0.44rem;
-}
+}*/
 
-/*courses*/
+/*courses
 
 .courses .cards-container{
   display: flex;
@@ -148,16 +148,48 @@ section{
   gap: 1.5rem;
   justify-content: center;
   align-items: flex-start;
+}*/
+
+.courses .cards-container{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between; 
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+  padding: 15px;
 }
-.courses .cards-container .cards{
+/*.courses .cards-container .cards{
   height: 100%;
   width: 100%;
   border-radius: .5rem;
   padding: 5px;
   background-color:  var(--grey);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}*/
+
+.courses .cards-container .cards {
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  border-radius: .5rem;
+  background-color: var(--grey);
+  display: inline-block;
+  text-decoration: none;
+  color: #ee9520;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
- 
+
+ .courses .cards-container .cards:hover{
+  transform: scale(1.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+ }
+
 .courses .cards-container .cards .image{
   position: relative;
 }
@@ -171,7 +203,7 @@ section{
 }
 .courses .cards-container .cards .title{
   font-size: 2rem;
-  color: var(--black);
+  color: #000;
   padding-bottom: 0.5rem;
   padding-top: 1rem;
   text-align: center;
@@ -214,59 +246,44 @@ input, button {
   font-size: 16px;
 }
 button {
-  background-color: #4CAF50;
+  background-color:#ee9520;
   color: white;
   cursor: pointer;
 }
 button:hover {
-  background-color: #45a049;
+  background-color:#e68a13;
 }
 canvas {
   display: block;
   margin: 20px auto;
 }
 
-/*attendance-teacher*/
-
-input, button {
-        padding: 10px;
-        margin: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-    button {
-        background-color: #4CAF50;
-        color: white;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: #45a049;
-    }
-    canvas {
-        display: block;
-        margin: 20px auto;
-    }
-
 /*quiz*/
 
 .quiz .icon-container {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between; 
+  align-items: center;
+  text-align: center;
   gap: 40px;
+  padding: 15px;
 }
 .quiz .icon-link {
   height: 100%;
-  width: 50%;
+  width: 100%;
+  padding: 5px;
   border-radius: .5rem;
+  background-color: var(--grey);
   display: inline-block;
   text-decoration: none;
   color: #ee9520;
   font-size: 18px;
   text-align: center;
   margin: 20px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .quiz .icon-link:hover {
   transform: scale(1.1);
@@ -275,11 +292,40 @@ input, button {
 .quiz .icon {
   font-size: 50px;
   display: block;
-  color: #ee9520;
-  margin-bottom: 5px;
+  color: black;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
-/*quiz section*/
+.quiz .icon-link .quiz-title{
+  font-size: 2rem;
+  color: #000;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.quiz .icon-link .quiz-title .h2{
+  font-size: 1.8rem;
+  color: #000;
+}
+
+.quiz .icon-link .des-quiz .view-btn-play{
+  width: 75%;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  background-color:#ee9520;
+  border: 0;
+  border-radius: 3px;
+  padding: 5px;
+  cursor: pointer;
+}
+.quiz .icon-link .des-quiz .view-btn-play:hover{
+ background-color: #000;
+ transition: 0.5s; 
+text-decoration-line: none;
+}
+/*quiz section
 
 input, textarea, button {
   padding: 10px;
@@ -323,7 +369,68 @@ button:hover {
   margin: 0;
 }
 
-.profile-teacher .container{
+
+/*teacher section*/
+/*teacher-profile*/
+
+.staff-profile .container-staff{
+width: 100%;
+height: 100%;
+padding:50px;
+margin-left: 10px;
+border-radius: .5rem;
+background-color: var(--grey);
+display: inline-block;
+box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.staff-profile .container-staff .heading-teacher{
+  margin-bottom: 30px;
+  text-align: start;
+}
+
+.staff-profile .container-staff #teacherInfo{
+text-align: center;
+margin-bottom: 20px;
+}
+
+.staff-profile .container-staff h3{
+  text-align: center;
+  margin-top: 50px;
+}
+#coursesList{
+  text-align: center;
+}
+ul #courses{
+text-align: center;
+}
+
+/*attendance-teacher*/
+
+input .update-students-btn{
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.update-students-btn {
+  background-color: #ee9520;
+  color: white;
+  cursor: pointer;
+}
+.update-students-btn:hover {
+  background-color: #e68a13;
+}
+canvas {
+  display: block;
+  margin: 20px auto;
+}
+
+
+/*students-detail*/
+.profile-teacher .student-detail-container{
   width: 100%;
   height: 100%;
   margin: 5px;
@@ -331,7 +438,7 @@ button:hover {
   text-align: center;
 }
 
-.profile-teacher .container .add-student-btn, .update-student-btn, .delete-student-btn{
+.profile-teacher .student-detail-container .add-student-btn, .update-student-btn, .delete-student-btn{
   margin: 20px;
   margin-bottom: 50px;
   padding: 10px;
@@ -340,12 +447,12 @@ button:hover {
   cursor: pointer;
 }
 
-.profile-teacher .container .add-student-btn:hover{
+.profile-teacher .student-detail-container .add-student-btn:hover{
   background-color: #e68a13;
 }
-.profile-teacher .container .update-student-btn:hover{
+.profile-teacher .student-detail-container .update-student-btn:hover{
   background-color: #e68a13;
 }
-.profile-teacher .container .delete-student-btn:hover{
+.profile-teacher .student-detail-container .delete-student-btn:hover{
   background-color: #e68a13;
 }
