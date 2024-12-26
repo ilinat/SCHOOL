@@ -378,3 +378,63 @@ async function loadStudents() {
 
 // Initial load of students
 loadStudents();
+
+//admin section admission page//
+
+// Function to update admission status (Approve or Reject)
+function updateStatus(button, status) {
+    // Get the row that the button is in
+    let row = button.closest('tr');
+    
+    // Get the status cell in that row and update its text
+    let statusCell = row.querySelector('.status');
+    statusCell.textContent = status;
+
+    // Change the status cell color based on the status
+    if (status === 'Approved') {
+        statusCell.style.backgroundColor = '#4CAF50'; // Green
+        statusCell.style.color = 'white';
+    } else if (status === 'Rejected') {
+        statusCell.style.backgroundColor = '#f44336'; // Red
+        statusCell.style.color = 'white';
+    }
+    
+    // Disable the approve/reject buttons after action is taken
+    row.querySelector('.approve').disabled = true;
+    row.querySelector('.reject').disabled = true;
+}
+
+// Function to view student details (this can be expanded for more detailed view)
+function viewDetails(button) {
+    let row = button.closest('tr');
+    let studentID = row.cells[0].textContent;
+    let studentName = row.cells[1].textContent;
+
+    // Example: Displaying details in an alert (can be expanded)
+    alert("Viewing details for " + studentName + " (ID: " + studentID + ")");
+}
+
+
+//report of admin//
+
+// Function to filter reports based on search input
+function filterReports() {
+    let input = document.getElementById('searchBar');
+    let filter = input.value.toLowerCase();
+    let table = document.getElementById('reportsTable');
+    let rows = table.getElementsByTagName('tr');
+
+    // Loop through all table rows and hide those that don't match the search query
+    for (let i = 1; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName('td');
+        let studentId = cells[0].textContent.toLowerCase();
+        let fullName = cells[1].textContent.toLowerCase();
+
+        // Check if the search query matches either student ID or full name
+        if (studentId.indexOf(filter) > -1 || fullName.indexOf(filter) > -1) {
+            rows[i].style.display = '';
+        } else {
+            rows[i].style.display = 'none';
+        }
+    }
+}

@@ -387,6 +387,7 @@ box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 .staff-profile .container-staff .heading-teacher{
   margin-bottom: 30px;
   text-align: start;
+  color: #ee9520;
 }
 
 .staff-profile .container-staff #teacherInfo{
@@ -426,33 +427,4 @@ input .update-students-btn{
 canvas {
   display: block;
   margin: 20px auto;
-}
-
-
-/*students-detail*/
-.profile-teacher .student-detail-container{
-  width: 100%;
-  height: 100%;
-  margin: 5px;
-  padding: 10px;
-  text-align: center;
-}
-
-.profile-teacher .student-detail-container .add-student-btn, .update-student-btn, .delete-student-btn{
-  margin: 20px;
-  margin-bottom: 50px;
-  padding: 10px;
-  background-color: #ee9520;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.profile-teacher .student-detail-container .add-student-btn:hover{
-  background-color: #e68a13;
-}
-.profile-teacher .student-detail-container .update-student-btn:hover{
-  background-color: #e68a13;
-}
-.profile-teacher .student-detail-container .delete-student-btn:hover{
-  background-color: #e68a13;
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>welcome to landing page</title>
+        <link rel="stylesheet" href="admin.css">
+        <!-- Bootstrap CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<!-- Font Awesome CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    
+    </head>
+    <body>
+
+      <section class="nav-nav">
+        <div class="sidenav">
+            <div class="profile"> 
+                <img src="pp.png" alt="Me" class="profile">
+                <p>Your Name</p>
+                <a href="index.html">
+                        <button class="nav-button" id="form-close">Logout</button></a>
+                <!--a class="button" href="#">logout</a-->
+            </div>
+            
+            <a href="adminhome.html">Dashboard</a>
+            <a href="adminstudentpage.html">Student</a>
+            <a href="viewadmission.html" class="active">Admission</a>
+            <a href="report.html">Reports</a>
+        </div>
+        </section>
+
+        <section class="Admission">
+        <h1>View Admissions</h1>
+        <table class="admissions-table" id="admissionsTable">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Full Name</th>
+                    <th>Grade</th>
+                    <th>Date of Birth</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-id="001">
+                    <td>001</td>
+                    <td>John Doe</td>
+                    <td>5th Grade</td>
+                    <td>2012-05-15</td>
+                    <td class="status">Pending</td>
+                    <td>
+                        <button class="btn approve" onclick="updateStatus(this, 'Approved')">Approve</button>
+                        <button class="btn reject" onclick="updateStatus(this, 'Rejected')">Reject</button>
+                    </td>
+                </tr>
+                <tr data-id="002">
+                    <td>002</td>
+                    <td>Jane Smith</td>
+                    <td>7th Grade</td>
+                    <td>2010-11-20</td>
+                    <td class="status">Approved</td>
+                    <td>
+                        <button class="btn view" onclick="viewDetails(this)">View</button>
+                    </td>
+                </tr>
+                <tr data-id="003">
+                    <td>003</td>
+                    <td>Emily Johnson</td>
+                    <td>6th Grade</td>
+                    <td>2011-03-12</td>
+                    <td class="status">Rejected</td>
+                    <td>
+                        <button class="btn view" onclick="viewDetails(this)">View</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+<script src="script.js"></script>
+
+        </body>
+        </html>

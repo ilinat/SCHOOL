@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: "Poppins", sans-serif;
+  }
+  
+  section{
+    margin-top: 30px;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: .2rem;
+    box-sizing: 0;
+  }
+  
+  /*landing page*/
+  
+  .nav-nav .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: whitesmoke;
+      overflow-x: hidden;
+      padding-top: 20px;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+    .nav-nav .sidenav a:hover{
+      color: #ee9520;
+      text-decoration: underline;
+    }
+    .nav-nav .sidenav .navitem User:active{
+      color: #ee9520;
+    }
+    
+    /*profile section*/
+   .nav-nav .profile{
+    align-content: center;
+      text-align: center;
+      padding: 5px;
+      margin: 5px;
+    }
+    .nav-nav .profile img{
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+    .nav-nav .profile p{
+      color: #ee9520;
+      font-size: large;
+    }
+    /*navigation links*/
+    .nav-nav .sidenav a {
+      padding: 6px 6px 6px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      align-items: center;
+      color: #333;
+      display: block;
+    }
+    
+    .nav-nav .sidenav a:focus {
+      color: #ee9520;
+    }
+    
+    .nav-nav .sidenav .profile .nav-button{
+      background: #ee9520;
+      width: 75%;
+      height:100%;
+      padding: 5px;
+      border: #ee9520;
+      border-radius: 30px;
+      color: #ffffff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  .nav-nav .sidenav .profile .nav-button:hover{
+    background-color:  #000;
+  }
+    
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+  }
+
+.active{
+    color: #ee9520;
+}
+
+/*dashboard page*/
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    max-width: 1200px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stats .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    width: 250px;
+}
+
+.card h3 {
+    margin: 0;
+    color: #ee9520;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 0;
+    color: #333;
+}
+
+/* Quick Links Section */
+.quick-links {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.quick-links h2 {
+    color: #ee9520;
+    margin-bottom: 10px;
+}
+
+.link-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.link-card {
+    background: #ee9520;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.link-card:hover {
+    background: #f09013;
+}
+
+/*student admin*/
+
+*students-detail*/
+.profile-teacher .student-detail-container{
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile .student-detail-container .add-student-btn, .update-student-btn, .delete-student-btn{
+  margin: 20px;
+  margin-bottom: 50px;
+  padding: 10px;
+  background-color: #ee9520;
+  color: #ffffff;
+  cursor: pointer;
+  border: 0px;
+}
+
+.profile-teacher .student-detail-container .add-student-btn:hover{
+  background-color: #e68a13;
+}
+.profile-teacher .student-detail-container .update-student-btn:hover{
+  background-color: #e68a13;
+}
+.profile-teacher .student-detail-container .delete-student-btn:hover{
+  background-color: #e68a13;
+}
+
+
+/*admission page*/
+.admissions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admissions-table th,
+.admissions-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.admissions-table th {
+    background-color: #ee9e35;
+    color: white;
+}
+
+.admissions-table tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.admissions-table tr:hover {
+    background-color: #e9f7ff;
+}
+
+/* Button Styles */
+.btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn.approve {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.btn.approve:hover {
+    background-color: #45a049;
+}
+
+.btn.reject {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.btn.reject:hover {
+    background-color: #e53935;
+}
+
+.btn.view {
+    background-color: #ee9e35; /* Blue */
+    color: white;
+}
+
+.btn.view:hover {
+    background-color: #ee9e35;
+}
+
+/*report page*/
+
+h1 {
+    color: #ee9520;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Search Bar */
+.search-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#searchBar {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+#searchBar:focus {
+    border-color: #ee9520;
+}
+
+/* Table Styles */
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reports-table th,
+.reports-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.reports-table th {
+    background-color: #ee9520;
+    color: white;
+}
+
+.reports-table tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.reports-table tr:hover {
+    background-color: #e9f7ff;
+}
+

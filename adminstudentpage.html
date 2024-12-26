@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>welcome to landing page</title>
+        <link rel="stylesheet" href="admin.css">
+        <!-- Bootstrap CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<!-- Font Awesome CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    
+    </head>
+    <body>
+
+      <section class="nav-nav">
+        <div class="sidenav">
+            <div class="profile"> 
+                <img src="pp.png" alt="Me" class="profile">
+                <p>Your Name</p>
+                <a href="index.html">
+                        <button class="nav-button" id="form-close">Logout</button></a>
+                <!--a class="button" href="#">logout</a-->
+            </div>
+            
+            <a href="adminhome.html">Dashboard</a>
+            <a href="adminstudentpage.html">Student</a>
+            <a href="viewadmission.html" class="active">Admission</a>
+            <a href="report.html">Reports</a>
+        </div>
+        </section>
+
+        <section class="profile-teacher">
+            <div class="students-detail-container">
+               
+                      <!-- Add Student Form -->
+              <h2>Add New Student</h2>
+              <form id="addStudentForm">
+              <label for="studentFirstName">First Name:</label>
+              <input type="text" id="studentFirstName" required><br><br>
+               
+                          <label for="studentLastName">Last Name:</label>
+              <input type="text" id="studentLastName" required><br><br>
+               
+                          <label for="studentEmail">Email:</label>
+              <input type="email" id="studentEmail" required><br><br>
+               
+                          <label for="studentEnrollmentDate">Enrollment Date:</label>
+              <input type="date" id="studentEnrollmentDate" required><br><br>
+              <label for="Gender">Gender:</label>
+              <input type="text" id="Gender" required><br><br>
+              <label for="HomeAddress">HomeAddress:</label>
+              <input type="text" id="HomeAddress" required><br><br>
+               
+               
+                          <button class="add-student-btn" style="margin-bottom: 50px;">Add Student</button>
+              </form>
+               
+                      <!-- Edit Student Form -->
+              <h2>Edit Student Details</h2>
+              <form id="editStudentForm">
+              <label for="editStudentId">Student ID:</label>
+              <input type="number" id="editStudentId" required><br><br>
+               
+                          <label for="editStudentFirstName">First Name:</label>
+              <input type="text" id="editStudentFirstName" required><br><br>
+               
+                          <label for="editStudentLastName">Last Name:</label>
+              <input type="text" id="editStudentLastName" required><br><br>
+               
+                          <label for="editStudentEmail">Email:</label>
+              <input type="email" id="editStudentEmail" required><br><br>
+              <label for="editHomeAddress">HomeAddress:</label>
+              <input type="email" id="editHomeAddressHomeAddress" required><br><br>
+               
+                          <button class="update-student-btn">Update Student</button>
+              </form>
+               
+                      <!-- Delete Student Form -->
+              <h2>Delete Student</h2>
+              <form id="deleteStudentForm">
+              <label for="deleteStudentId">Student ID to Delete:</label>
+              <input type="number" id="deleteStudentId" required><br><br>
+               
+                          <button class="delete-student-btn">Delete Student</button>
+              </form>
+            </div>
+            </section>
+        
+        <script src="script.js"></script>
+    </body>
+    </html>

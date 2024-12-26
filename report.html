@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>welcome to landing page</title>
+        <link rel="stylesheet" href="admin.css">
+        <!-- Bootstrap CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<!-- Font Awesome CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    
+    </head>
+    <body>
+
+      <section class="nav-nav">
+        <div class="sidenav">
+            <div class="profile"> 
+                <img src="pp.png" alt="Me" class="profile">
+                <p>Your Name</p>
+                <a href="index.html">
+                        <button class="nav-button" id="form-close">Logout</button></a>
+                <!--a class="button" href="#">logout</a-->
+            </div>
+            
+            <a href="adminhome.html">Dashboard</a>
+            <a href="adminstudentpage.html">Student</a>
+            <a href="viewadmission.html" class="active">Admission</a>
+            <a href="report.html" class="active">Reports</a>
+        </div>
+        </section>
+
+        <section class="report">
+            <h1>Student Reports</h1>
+    
+            <!-- Search bar -->
+            <div class="search-container">
+                <input type="text" id="searchBar" placeholder="Search by Student Name or ID..." onkeyup="filterReports()">
+            </div>
+    
+            <table class="reports-table" id="reportsTable">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Full Name</th>
+                        <th>Grade</th>
+                        <th>Attendance (%)</th>
+                        <th>Average Marks (%)</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example rows, replace with dynamic data -->
+                    <tr>
+                        <td>001</td>
+                        <td>John Doe</td>
+                        <td>5th Grade</td>
+                        <td>95%</td>
+                        <td>88%</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Jane Smith</td>
+                        <td>7th Grade</td>
+                        <td>90%</td>
+                        <td>92%</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Emily Johnson</td>
+                        <td>6th Grade</td>
+                        <td>85%</td>
+                        <td>80%</td>
+                        <td>Inactive</td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>Michael Brown</td>
+                        <td>8th Grade</td>
+                        <td>98%</td>
+                        <td>94%</td>
+                        <td>Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    <script src="script.js"></script>
+
+        </body>
+        </html>
